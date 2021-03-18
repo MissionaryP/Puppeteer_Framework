@@ -1,0 +1,140 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2020-12-02T14:27:23.895Z",
+    "end": "2020-12-02T14:28:30.606Z",
+    "duration": 66711,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b363a91b-c4f7-44f0-9344-8a16d6e596b5",
+      "title": "",
+      "fullFile": "",
+      "file": "",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "b46925f8-3edd-4e50-bf8e-6c1cb7cf195e",
+          "title": "Login Suite",
+          "fullFile": "/Users/gkolh/Documents/GitHub/pod-stark-automation-functional/tests/e2e/login.test.js",
+          "file": "/tests/e2e/login.test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Login Suite\"",
+              "fullTitle": "Login Suite \"before all\" hook in \"Login Suite\"",
+              "timedOut": false,
+              "duration": 10013,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "browser = await puppeteer.launch({\n    args:[\n           '--start-fullscreen'\n        ],\n    defaultViewport: null,\n    headless: false,\n})\ntestUrl = config.baseDevUrl\npage = await browser.newPage()\n//***************** Change browser language *******************\nawait page.evaluateOnNewDocument(() => {\n    Object.defineProperty(navigator, \"language\", {\n        get: function() {\n            return \"en-GB\"\n        }\n    })\n    Object.defineProperty(navigator, \"languages\", {\n        get: function() {\n            return [\"en-GB\", \"en\"]\n        }\n    })\n});     \n//************** Change browser language END *******************",
+              "err": {},
+              "uuid": "ec349cd0-f35b-448e-a80f-2f3bc7224d42",
+              "parentUUID": "b46925f8-3edd-4e50-bf8e-6c1cb7cf195e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Login Suite\"",
+              "fullTitle": "Login Suite \"after all\" hook in \"Login Suite\"",
+              "timedOut": false,
+              "duration": 155,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log('Closing browser...')\n        await page.close()\n        await browser.close()",
+              "err": {},
+              "uuid": "60c4c8bd-b933-4767-8c0a-818578d1bcc8",
+              "parentUUID": "b46925f8-3edd-4e50-bf8e-6c1cb7cf195e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Login as Admin",
+              "fullTitle": "Login Suite Login as Admin",
+              "timedOut": false,
+              "duration": 56535,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const userInput = \"#username\"\n        const passwordInput = \"#password\"\n        const loginButton = \"#btn-login\"\n        const logoutButton = \"#btn-logout\"\n        const userloged = \"#btn-logged-user\"\n        const username =\"STARK_S\"\n        const password = \"Vct@34567\"\n        //await page.goto('https://' + testUrl + '.is-np.its-plus.com')\n        await page.goto('https://pod-dev.is-np.its-plus.com/')\n        await page.waitForSelector('#frmLogin')\n         \n         User = await page.$(userInput)\n         Password = await page.$(passwordInput)\n         Login = await page.$(loginButton)\n         await User.click({ clickCount: 3 })\n         await User.type(username) // add username\n         await Password.click({ clickCount: 3})\n         await Password.type(password) // add password\n         await Login.click()\n         await page.waitFor(3000)\n         await page.waitForFunction(\n            'document.querySelector(\"body\").innerText.includes(\"STARK_S\")'\t  \n          )\n          await page.waitFor(3000) \n          \n          LoggedUser = await page.$(userloged)\n          await LoggedUser.click()\n          await page.waitForFunction(\n            'document.querySelector(\"body\").innerText.includes(\"Logout\")'\t  \n          )\n          await page.waitForSelector('#cdk-overlay-0')\n          await page.waitForSelector('#btn-logout')\n          await page.click('#btn-logout')\n          await page.waitFor(3000)\n          await page.screenshot({path: 'LoginPage.png'})\n          //linkLogout = await page.$(logoutButton)\n          //await linkLogout.click()\n          //await page.waitForSelector('#frmLogin')",
+              "err": {},
+              "uuid": "f9217658-6d1a-4be3-9f4b-c6d404021edd",
+              "parentUUID": "b46925f8-3edd-4e50-bf8e-6c1cb7cf195e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f9217658-6d1a-4be3-9f4b-c6d404021edd"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 56535,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 300000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 300000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "8.1.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.1.1"
+    },
+    "marge": {
+      "options": {
+        "charts": "true"
+      },
+      "version": "5.1.0"
+    }
+  }
+}

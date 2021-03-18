@@ -1,0 +1,24 @@
+{
+  "name": "puppeteer_automation",
+  "version": "1.0.0",
+  "description": "Auth0 Automated Testing ",
+  "main": "index.js",
+  "scripts": {
+    "test:e2e": "./node_modules/mocha/bin/mocha --timeout=300000 ./tests/e2e/*.test.js --reporter mochawesome --reporter-options charts=true"
+  },
+  "keywords": [
+    "Puppeteer",
+    "Mocha",
+    "Chai",
+    "Automation"
+  ],
+  "author": "PC",
+  "license": "ISC",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.1.3",
+    "mochawesome": "^6.1.1",
+    "prettier": "^2.1.2",
+    "puppeteer": "^5.3.1"
+  }
+}
